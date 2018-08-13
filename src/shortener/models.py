@@ -1,7 +1,8 @@
 from django.db import models
-
+from django.conf import settings
 from .utils import code_generator, create_shortcode
 
+SHORTCODE_MAX = getattr(settings, "SHORTCODE_MAX", 15)
 
 class URLManager(models.Manager):
 	# URL.objects.all()
