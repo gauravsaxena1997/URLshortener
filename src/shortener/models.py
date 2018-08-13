@@ -1,4 +1,10 @@
+import random
+import string
 from django.db import models
+
+
+def code_generator (size=6,chars=string.ascii_lowercase + string.digits):
+	return ''.join(random.choice(chars) for _ in range(size))
 
 class URL(models.Model):
 	url 		= models.CharField(max_length=220)
@@ -10,3 +16,12 @@ class URL(models.Model):
 
 	def __str__(self):
 		return str(self.url)
+
+	def save(self, *args, **kwargs):
+		print('something')
+		self.shortcode = code_generator()
+	#       if self.shortcode is None or self.shortcode == "":
+	#           self.shortcode = create_shortcode(self)
+	#       if not "http" in self.url:
+	#           self.url = "http://" + self.url
+		super(URL, self).save(*args, **kwargs)
