@@ -5,7 +5,8 @@ from .validators import validate_url
 
 class SubmitUrlForm(forms.Form):
 	url = forms.CharField(	label='', 
+							validators=[validate_url] ,
 							widget = forms.TextInput (
 								attrs = {'placeholder':'Long URL',
-										 'class':'form-control  form-control-lg' }),
-							validators=[validate_url])
+										 'class':'form-control  form-control-lg' }) 
+						 )

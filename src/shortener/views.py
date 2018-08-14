@@ -19,6 +19,10 @@ class HomeView(View):
 
 	def post (self, request, *args, **kwargs):
 		form  = SubmitUrlForm(request.POST)
+		context = {
+		"title": "furl",
+		"form": form
+		}
 		template = "shortener/home.html"
 		if form.is_valid():
 		    new_url = form.cleaned_data.get("url")
