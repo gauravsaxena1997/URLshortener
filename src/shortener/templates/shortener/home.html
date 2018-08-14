@@ -4,11 +4,12 @@
 	<title></title>
 </head>
 <body>
-<h1>Home Page</h1>
+<h1>{{title}}</h1>
 
 <form method="POST" action="http://www.stubbyurl.com:8000">
 	{% csrf_token %}
-	<input name="url" type="text" placeholder='Shorten your url'>
+	<!-- <input name="url" type="text" placeholder='Shorten your url'> -->
+	{{ form.as_p }}
 	<input type="submit" value='shorten'>
 	
 </form>
