@@ -1,17 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h1>{{title}}</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} FUrl {% endblock title %}
 
-<form method="POST" action="http://www.stubbyurl.com:8000">
-	{% csrf_token %}
-	<!-- <input name="url" type="text" placeholder='Shorten your url'> -->
-	{{ form.as_p }}
-	<input type="submit" value='shorten'>
-	
-</form>
-</body>
-</html>
+{% block style %}
+h1{
+	color: white  ;
+}
+h3{
+	font-family: 'Bree Serif', serif;
+	color: #ffffff ;
+}
+.content{
+	position:fixed;
+	top:100px;
+}
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.button:hover {
+  padding: 15px;
+  background-color:  #1b8dff ;
+}
+
+{% endblock style %}
+
+{% block content %}
+
+<div class="img-overlay"></div>
+<img id="myImg" src="https://sanfranciscovc.files.wordpress.com/2016/11/rocket.gif" height="100%" width="100%">
+<div class="row">
+	<div class="content text-center col-sm-12">
+		<h1>{{title}}</h1>
+		<h3>Shorten that URL</h3>
+		<div class="col-sm-6 offset-3" style="margin-top:8%">
+			<form method="POST" action="http://www.stubbyurl.com:8000">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input class="button" type="submit" value='Shrink'>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock content %}

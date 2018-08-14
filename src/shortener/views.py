@@ -11,7 +11,7 @@ class HomeView(View):
 		the_form = SubmitUrlForm()
 		# bg_image = 'https://upload.wikimedia.org/wikipedia/commons/0/05/20100726_Kalamitsi_Beach_Ionian_Sea_Lefkada_island_Greece.jpg'
 		context = {
-		    "title": "Submit URL",
+		    "title": "FUrl",
 		    "form": the_form,
 		    # "bg_image": bg_image
 		}

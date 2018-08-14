@@ -1,19 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h1>Created</h1>
+{% block title %} FUrl | {{ object.shortcode }} {% endblock title %}
 
-<p> {{ object.url }} </p>
-{% if object.clickevent %} 
-<p> Count: {{ object.clickevent.count }} </p>
-{% endif %}
-<p> <a href="{{ object.get_short_url }}" target="_blank">{{ object.get_short_url }} </a></p>
+{% block style %}
+h1{
+	color:white ;
+}
 
-<a href="/"> +New </a>
+{% endblock style %}
 
-</body>
-</html>
+{% block content %}
+
+<div class="img-overlay"></div>
+<img id="myImg" src="https://silktide.com/app/uploads/2015/01/freedom.png">
+
+
+<div class="row">
+	<div class="text-center col-sm-12"  style="margin-top:8%">
+		<h1>Success !</h1>
+		<p class="long"> {{ object.url }} </p>
+		<p> Count: {{ object.clickevent.count }} </p>
+		<p class="shortcode pl-5 pr-5" style="display:inline"> <a href="{{ object.get_short_url }}" target="_blank">{{ object.get_short_url }} </a></p> <br>
+		<a class="btn btn-secondary mt-4" href="/"> +New </a>
+	</div>
+</div>
+{% endblock content %}
