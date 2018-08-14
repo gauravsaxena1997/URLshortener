@@ -60,6 +60,7 @@ ROOT_URLCONF = 'urlshortener.urls'
 ROOT_HOSTCONF = 'urlshortener.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIECT_URL = 'http://www.stubbyurl.com:8000'
+PARENT_URL = 'stubbyurl.com:8000'
 
 TEMPLATES = [
     {
