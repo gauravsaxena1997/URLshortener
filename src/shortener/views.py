@@ -20,13 +20,23 @@ class HomeView(View):
 		print (request.POST)                               #dict = {}
 		print (request.POST.get('url'))                    #dict.get('url')
 		form  = SubmitUrlForm(request.POST)
+		if form.is_valid():
+			print (form.cleaned_data.get('url'))
+			new_url = form.cleaned_data.get('url')
+		obj, created = URL.objects.get_or_create(url=new_url)
+		new_context = {
+			'object': obj,
+			'created':created
+		}
+		if created:
+			return render(request, "shortener/success.html", new_context) 
+		else:
+			return render(request, "shortener/already-exists.html", new_context) 
 		context = {
 		    "title": "Submit URL",
 		    "form": form,
 		    # "bg_image": bg_image
 		}
-		if form.is_valid():
-			print (form.cleaned_data.get('url'))
 		return render(request, "shortener/home.html", context) 
 
 def redirect_view (request,shortcode=None, *args, **kwargs):
