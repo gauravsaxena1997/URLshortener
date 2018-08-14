@@ -1,6 +1,5 @@
 from django.db import models
 from django.conf import settings
-# from django.cong.urlresolvers import reverse
 from django_hosts.resolvers import reverse
 
 from .utils import code_generator, create_shortcode
@@ -38,7 +37,6 @@ class URL(models.Model):
 	active = models.BooleanField(default=True)
 
 	objects = URLManager()
-	abc = URLManager()
 
 	def save(self, *args, **kwargs):
 		if self.shortcode is None or self.shortcode == "":
@@ -51,6 +49,5 @@ class URL(models.Model):
 		return str(self.url)
 
 	def get_short_url(self):
-		return 	'http://www.stubbyurl.com/{shortcode}'.format(shortcode=self.shortcode)
 		url_path = reverse("shortcode", kwargs={'shortcode': self.shortcode}, host='www', scheme='http')
 		return url_path

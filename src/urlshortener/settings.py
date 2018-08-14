@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # third-party
     'django_hosts',
     # custom apps
+    'analytics',
     'shortener',
 ]
 
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'urlshortener.urls'
 ROOT_HOSTCONF = 'urlshortener.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIECT_URL = 'http://www.stubbyurl.com:8000'
-PARENT_URL = 'stubbyurl.com:8000'
+PARENT_HOST = 'stubbyurl.com:8000'
 
 TEMPLATES = [
     {
