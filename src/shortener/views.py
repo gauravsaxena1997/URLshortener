@@ -26,7 +26,7 @@ class HomeView(View):
 		    # "bg_image": bg_image
 		}
 		if form.is_valid():
-			print (form.cleaned_data)
+			print (form.cleaned_data.get('url'))
 		return render(request, "shortener/home.html", context) 
 
 def redirect_view (request,shortcode=None, *args, **kwargs):
