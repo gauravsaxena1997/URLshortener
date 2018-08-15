@@ -44,7 +44,7 @@ h3{
 		<h1>{{title}}</h1>
 		<h3>Shorten that URL</h3>
 		<div class="col-sm-6 offset-3" style="margin-top:8%">
-			<form method="POST" action="http://www.stubbyurl.com:8000">
+			<form method="POST" action=".">
 				{% csrf_token %}
 				{{ form.as_p }}
 				<input class="button" type="submit" value='Shrink'>

@@ -25,7 +25,7 @@ SECRET_KEY = 'lf7k585_q9+41xd(=@0+w4m$mon=2cnbd1h5iu*3%derby63_7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stubbyurl.com','www.stubbyurl.com']
+ALLOWED_HOSTS = ['furl.com','www.furl.com']
 
 
 # Application definition
@@ -60,8 +60,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'urlshortener.urls'
 ROOT_HOSTCONF = 'urlshortener.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIECT_URL = 'http://www.stubbyurl.com:8000'
-PARENT_HOST = 'stubbyurl.com:8000'
+DEFAULT_REDIECT_URL = 'http://www.furl.com:8000'
+PARENT_HOST = 'furl.com:8000'
 
 TEMPLATES = [
     {
